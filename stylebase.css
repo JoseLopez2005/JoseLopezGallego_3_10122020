@@ -28,22 +28,27 @@ a:visited {
 
 header {
 	width: 100%;
-	height: 65px;
+	height: 4rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-bottom: 1px solid gray;
 }
 
 .logo {
 	font-family: 'Shrikhand', sans-serif;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	padding-top: 10px;
 }
 
 .logo_mini {
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	padding: 0;
+	margin-bottom: 15px;
+}
+
+.logo_entete {
+	margin-left: 1.25rem;
+	padding-top: 0;
 }
 
 #fleche {
@@ -96,29 +101,39 @@ nav p {
 	margin-bottom: 20px;
 }
 
-.btn {
+.btn_degr {
 	border-radius: 50px;
 	background-image: linear-gradient(#ff79da, #9356DC);
+	font-size: 1.1rem;
 	color: #ffffff;
 	text-align: center;
-	vertical-align: center;
-	padding: 18px;
+	padding: 1.1rem;
 	margin-bottom: 60px;
 	box-shadow: 0 6px 10px #b197fc;
 }
 
-.btn:hover {
+.btn_commande {
+	min-width: 190px;
+}
+
+.btn_degr:hover {
 	transform: scale(1.02);
 	cursor: pointer;
 }
 
-#fonct_guide {
+.carte_guide {
 	width: 100%;
 	height: 340px;
 	margin: 30px 0 50px 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+.carte_plats {
+	height: 315px;
+	background-color: #f3f0ff;
+	
 }
 
 .btn_fonct {
@@ -132,12 +147,32 @@ nav p {
 	margin-left: 20px;
 }
 
+.btn_plats {
+	width: 90%;
+	background-color: #ffffff;
+	box-shadow: 0 3px 5px #c1adfd;
+	justify-content: space-between;
+}
+
+.nom_plats {
+	margin-left:10px;
+}
+
+.nom_plats h3, .nom_plats p {
+	margin: 3px;
+}
+
 .btn_fonct:hover {
 	background-color: #eee1ff;
 	box-shadow: 0 6px 5px #c1adfd;
 }
 
-.btn_fonct p {
+.btn_fonct.btn_plats:hover {
+	background-color: #fff;
+
+}
+
+.num {
 	color: #ffffff;
 	border-radius: 50%;
 	padding: 4px 8px 4px 8px;
@@ -199,7 +234,7 @@ nav p {
 }
 
 .restos_nom {
-	height: 60%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -207,14 +242,12 @@ nav p {
 	padding: 0;
 }
 
-.restos_nom h3{
+.restos_nom h3 {
 	margin: 0 0 5px 10px;
-	padding: 0;
 }
 
-.restos_nom p{
+.restos_nom p {
 	margin: 0 0 5px 10px;
-	padding: 0;
 }
 
 .heart {
@@ -232,10 +265,22 @@ nav p {
 	transform: scale(1.2);
 }
 
+.heart_entete {
+	background-color:#f3f0ff;
+	position: absolute;
+	top: 2rem;
+	right: 15px;
+}
+
 .box_general img {
     width: 100%;
     height: 175px;
 	border-radius: 15px 15px 0 0;
+}
+
+.box_resto img {
+	height: 270px;
+	border-radius: 0;
 }
 
 @supports(object-fit: cover) 
@@ -301,12 +346,25 @@ footer p {
 }
 
 
-/* Styles pour la page de "La palette du goût" */
-
-#photo_resto {
+.entete {
 	width: 100%;
-	height: 270px;
-	background-image: url ("images_accueil/palettedugout.jpg");
+	height: 5rem;
+	border-radius: 2rem 2rem 0 0;
+	background-color:#f3f0ff;
+	position: absolute;
+	top: 285px;
+	right: 0;
+	margin: 0 0 25px 0;
+}
+
+.check {
+	width: 18%;
+	height: 100%;
+	font-size: 1.5rem;
+	color: #fff;
+	background-color: #99e2d0;
+	border-radius: 0 15px 15px 0;
+	border: none;
 }
 
 }
