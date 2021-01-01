@@ -158,7 +158,6 @@ $tertiary:  #99e2d0;
         padding: 0;
     }
 
-
     /*Styles pour carte des restaurants*/
     .card { 
         width: 100%;
@@ -236,11 +235,12 @@ $tertiary:  #99e2d0;
     
         & .plain {
             color: rgba($primary, 0);
+            transition: color 1s;
             &:active {
                 color: rgba($primary, 1);
                 z-index: 2;
             }
-        }
+        }    
     }
 
     /*Pour le bouton Nouveau */
@@ -346,6 +346,7 @@ $tertiary:  #99e2d0;
                 position: absolute;
                 top: 30px;
                 right: 20px;
+                transition: 1s;
             }
     
             &:hover {
@@ -362,24 +363,13 @@ $tertiary:  #99e2d0;
         
             & .plain {
                 color: rgba($primary, 0);
+                transition: color 1s;
                 &:active {
                     color: rgba($primary, 1);
                     z-index: 2;
                 }
             }
         }
-    }
-
-
-    .check {
-        width: 18%;
-        height: 100%;
-        font-size: 1.5rem;
-        color: #fff;
-        background-color: #99e2d0;
-        border-radius: 0 15px 15px 0;
-        border: none;
-        display: none;
     }
 
     .carte hr {
@@ -389,16 +379,35 @@ $tertiary:  #99e2d0;
     }
 
     .carte__bouton--modif {
-        width: 90%;
+        width: 93%;
         background-color:white;
         box-shadow: none;
         justify-content: space-between;
         align-items: flex-end;
         margin-left: 0.75rem;
         padding: 0 0 10px 0;
+
+        &:hover {
+            cursor: pointer;
+        }
             
         .card__text > * {
          margin: 0.25rem 0 0 0.7rem;
+        }
+
+        .check {
+            width: 18%;
+            height: 100%;
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: $tertiary;
+            border-radius: 0 15px 15px 0;
+            border: none;
+            display: none;
+
+            &:active {
+                display: block
+            }
         }
     }
 
