@@ -23,7 +23,7 @@ $tertiary:  #99e2d0;
     h2, h3, h4 {
         font-weight: 700;
     }
-
+    
     a {
         color: #000;
         text-decoration: none;
@@ -216,16 +216,30 @@ $tertiary:  #99e2d0;
 
     .heart {
         position: absolute;
-        top: 170px;
+        top: 195px;
         right: 25px;
         font-size: 1.8rem;
-        color: $primary;
         border: 0;
         margin-right: 10px;
 
         &:hover {
             cursor: pointer;
-            transform: scale(1.2);
+        }
+
+        & .vide {
+            color: rgba(#000, 1);
+            &:active {
+                color: rgba(#000, 0);
+                z-index: 1;
+            }
+        }
+    
+        & .plain {
+            color: rgba($primary, 0);
+            &:active {
+                color: rgba($primary, 1);
+                z-index: 2;
+            }
         }
     }
 
@@ -273,7 +287,6 @@ $tertiary:  #99e2d0;
         }
     }
 
-
     .fa-utensils {
         height: 1rem;
         margin-right: 5px;
@@ -304,7 +317,6 @@ $tertiary:  #99e2d0;
     object-fit: cover;
     object-position: center center; }
     }
-
     
     .corps-page {
         width: 100%;
@@ -330,11 +342,30 @@ $tertiary:  #99e2d0;
                 margin: 0;
                 padding: 0;
             }
-            
             .heart--modif{
                 position: absolute;
-                top: 0;
+                top: 30px;
                 right: 20px;
+            }
+    
+            &:hover {
+                cursor: pointer;
+            }
+    
+            & .vide {
+                color: rgba(#000, 1);
+                &:active {
+                    color: rgba(#000, 0);
+                    z-index: 1;
+                }
+            }
+        
+            & .plain {
+                color: rgba($primary, 0);
+                &:active {
+                    color: rgba($primary, 1);
+                    z-index: 2;
+                }
             }
         }
     }

@@ -202,8 +202,8 @@
     height: 260px;
     border-radius: 15px;
     margin: 0;
-    -webkit-box-shadow: 0 3px 3px #c1adfd;
-            box-shadow: 0 3px 3px #c1adfd;
+    -webkit-box-shadow: 0 3px 3px rgba(147, 86, 220, 0.2);
+            box-shadow: 0 3px 3px rgba(147, 86, 220, 0.2);
     position: relative;
     top: 0;
     right: 0;
@@ -241,17 +241,28 @@
   }
   .heart {
     position: absolute;
-    top: 170px;
+    top: 195px;
     right: 25px;
     font-size: 1.8rem;
-    color: #9356dc;
     border: 0;
     margin-right: 10px;
   }
   .heart:hover {
     cursor: pointer;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+  }
+  .heart .vide {
+    color: black;
+  }
+  .heart .vide:active {
+    color: rgba(0, 0, 0, 0);
+    z-index: 1;
+  }
+  .heart .plain {
+    color: rgba(147, 86, 220, 0);
+  }
+  .heart .plain:active {
+    color: #9356dc;
+    z-index: 2;
   }
   /*Pour le bouton Nouveau */
   .card__new {
@@ -359,8 +370,25 @@
   }
   .corps-page .corps-page__heading .heart--modif {
     position: absolute;
-    top: 0;
+    top: 30px;
     right: 20px;
+  }
+  .corps-page .corps-page__heading:hover {
+    cursor: pointer;
+  }
+  .corps-page .corps-page__heading .vide {
+    color: black;
+  }
+  .corps-page .corps-page__heading .vide:active {
+    color: rgba(0, 0, 0, 0);
+    z-index: 1;
+  }
+  .corps-page .corps-page__heading .plain {
+    color: rgba(147, 86, 220, 0);
+  }
+  .corps-page .corps-page__heading .plain:active {
+    color: #9356dc;
+    z-index: 2;
   }
   .check {
     width: 18%;
