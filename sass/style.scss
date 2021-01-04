@@ -88,17 +88,20 @@ $tertiary:  #99e2d0;
     .bouton {
         border-radius: 3.15rem;
         background-image: linear-gradient($secondary, $primary);
-        font-size: 1.1rem;
+        font-size: 1rem;
+        font-weight: 300;
         color: white;
         text-align: center;
-        padding: 0 1.1rem;
+        padding: 0;
         margin: 1.8rem 0;
         box-shadow: 0 6px 10px rgba($primary, 0.4);
-        min-width: 200px;
-        transition: transform 300ms;
+        min-width: 220px;
+        transition: all 600ms ease-in-out;
 
         &:hover {
         transform: scale(1.05);
+        background-image: linear-gradient($primary, $secondary);
+        box-shadow: 0 6px 10px rgba($primary, 0.6);
         }
 
         &:visited {
@@ -156,6 +159,7 @@ $tertiary:  #99e2d0;
     .carte--modif {
         margin: 0;
         padding: 0;
+        height: auto;
     }
 
     /*Styles pour carte des restaurants*/
@@ -341,6 +345,7 @@ $tertiary:  #99e2d0;
                 font-size: 1.8rem;
                 margin: 0;
                 padding: 0;
+                letter-spacing: 1px;
             }
             .heart--modif{
                 position: absolute;
@@ -383,31 +388,75 @@ $tertiary:  #99e2d0;
         background-color:white;
         box-shadow: none;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
         margin-left: 0.75rem;
-        padding: 0 0 10px 0;
+        padding: 0;
+
+        h4 {
+            height: 96%;
+            padding: 2.4rem 0 0 0.8rem;
+            margin: 0;
+            transition: transform 500ms ease-out;
+        }
+
+        &:active > h4 {
+            transform: translateX(-20%);
+        }
 
         &:hover {
             cursor: pointer;
         }
             
-        .card__text > * {
-         margin: 0.25rem 0 0 0.7rem;
+        .card__text {
+            margin-top: 0.8rem;
+            width: 100%;
+            min-width: 67%;
+            & > * {
+                margin: 0.3rem 0 0 0.7rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
         }
+        
 
         .check {
-            width: 18%;
+            width: 0;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            visibility: hidden;
+            opacity: 0;
+
+            & >.fa-check-circle {
+                display: inline-block;
+                transform: rotate(-90deg);
+                transition: transform 500ms ease-in-out;
+            }
+        }
+
+        &:active > .check {
+            width: 25%;
             height: 100%;
             font-size: 1.5rem;
             color: #fff;
             background-color: $tertiary;
             border-radius: 0 15px 15px 0;
             border: none;
-            display: none;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 500ms ease-in-out;
+        }
 
-            &:active {
-                display: block
-            }
+        &:active  .fa-check-circle {
+            transform: rotate(0deg);
+        }
+    }
+
+    .carte__bouton--special {
+        height: 100px;
+        h4 {
+            padding-top: 3.9rem;
         }
     }
 

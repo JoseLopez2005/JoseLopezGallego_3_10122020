@@ -92,22 +92,25 @@
     border-radius: 3.15rem;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ff79da), to(#9356dc));
     background-image: linear-gradient(#ff79da, #9356dc);
-    font-size: 1.1rem;
+    font-size: 1rem;
+    font-weight: 300;
     color: white;
     text-align: center;
-    padding: 0 1.1rem;
+    padding: 0;
     margin: 1.8rem 0;
     -webkit-box-shadow: 0 6px 10px rgba(147, 86, 220, 0.4);
             box-shadow: 0 6px 10px rgba(147, 86, 220, 0.4);
-    min-width: 200px;
-    -webkit-transition: -webkit-transform 300ms;
-    transition: -webkit-transform 300ms;
-    transition: transform 300ms;
-    transition: transform 300ms, -webkit-transform 300ms;
+    min-width: 220px;
+    -webkit-transition: all 600ms ease-in-out;
+    transition: all 600ms ease-in-out;
   }
   .bouton:hover {
     -webkit-transform: scale(1.05);
             transform: scale(1.05);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#9356dc), to(#ff79da));
+    background-image: linear-gradient(#9356dc, #ff79da);
+    -webkit-box-shadow: 0 6px 10px rgba(147, 86, 220, 0.6);
+            box-shadow: 0 6px 10px rgba(147, 86, 220, 0.6);
   }
   .bouton:visited {
     color: white;
@@ -172,6 +175,7 @@
   .carte--modif {
     margin: 0;
     padding: 0;
+    height: auto;
   }
   /*Styles pour carte des restaurants*/
   .card {
@@ -369,6 +373,7 @@
     font-size: 1.8rem;
     margin: 0;
     padding: 0;
+    letter-spacing: 1px;
   }
   .corps-page .corps-page__heading .heart--modif {
     position: absolute;
@@ -409,30 +414,78 @@
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     margin-left: 0.75rem;
-    padding: 0 0 10px 0;
+    padding: 0;
+  }
+  .carte__bouton--modif h4 {
+    height: 96%;
+    padding: 2.4rem 0 0 0.8rem;
+    margin: 0;
+    -webkit-transition: -webkit-transform 500ms ease-out;
+    transition: -webkit-transform 500ms ease-out;
+    transition: transform 500ms ease-out;
+    transition: transform 500ms ease-out, -webkit-transform 500ms ease-out;
+  }
+  .carte__bouton--modif:active > h4 {
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
   }
   .carte__bouton--modif:hover {
     cursor: pointer;
   }
+  .carte__bouton--modif .card__text {
+    margin-top: 0.8rem;
+    width: 100%;
+    min-width: 67%;
+  }
   .carte__bouton--modif .card__text > * {
-    margin: 0.25rem 0 0 0.7rem;
+    margin: 0.3rem 0 0 0.7rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .carte__bouton--modif .check {
-    width: 18%;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .carte__bouton--modif .check > .fa-check-circle {
+    display: inline-block;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transition: -webkit-transform 500ms ease-in-out;
+    transition: -webkit-transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
+  }
+  .carte__bouton--modif:active > .check {
+    width: 25%;
     height: 100%;
     font-size: 1.5rem;
     color: #fff;
     background-color: #99e2d0;
     border-radius: 0 15px 15px 0;
     border: none;
-    display: none;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 500ms ease-in-out;
+    transition: opacity 500ms ease-in-out;
   }
-  .carte__bouton--modif .check:active {
-    display: block;
+  .carte__bouton--modif:active .fa-check-circle {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  .carte__bouton--special {
+    height: 100px;
+  }
+  .carte__bouton--special h4 {
+    padding-top: 3.9rem;
   }
   .carte__bouton--modif h4 {
     margin: 5px 10px 5px 0;
