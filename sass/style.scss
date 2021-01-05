@@ -5,12 +5,9 @@ $primary: #9356dc;
 $secondary: #ff79da;
 $tertiary:  #99e2d0;
 
-    html {
-        box-sizing: border-box;	
-    }
         
     * {
-        box-sizing: inherit;
+        box-sizing: border-box;
     }
 
     body {
@@ -33,9 +30,88 @@ $tertiary:  #99e2d0;
         }
     }
 
+    .loader-container {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 100% auto;
+        transform-origin: top;
+        transform: scaleY(0);
+        animation: loader-spinner 3s linear;
+        z-index: 0;
+    }
+
+    .loader-container .loader1{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        border: solid 4px transparent;
+        border-top-color: $primary;
+        border-left-color: $primary;
+        border-radius: 50%;
+        animation: loader 1.6s linear infinite;
+    }
+
+    .loader-container .loader2{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 75%;
+        height: 75%;
+        border: solid 4px transparent;
+        border-top-color: $tertiary;
+        border-left-color: $tertiary;
+        border-radius: 50%;
+        animation: loader2 1.4s linear infinite;
+    }
+
+    .loader-container .loader3{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 50%;
+        border: solid 4px transparent;
+        border-top-color: $secondary;
+        border-left-color: $secondary;
+        border-radius: 50%;
+        animation: loader 1.2s linear infinite;
+    }
+
+    @keyframes loader-spinner{
+        0% {
+            transform: scale(0);
+        }
+        
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes loader{
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    @keyframes loader2{
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(-360deg);
+        }
+    }
+
     .block-page {
         width: 100%;
-    }
+        z-index: 100;
+    }    
 
     .entete {
         width: 100%;
@@ -88,6 +164,7 @@ $tertiary:  #99e2d0;
     .bouton {
         border-radius: 3.15rem;
         background-image: linear-gradient($secondary, $primary);
+        opacity: 1;
         font-size: 1rem;
         font-weight: 300;
         color: white;
@@ -96,16 +173,15 @@ $tertiary:  #99e2d0;
         margin: 1.8rem 0;
         box-shadow: 0 6px 10px rgba($primary, 0.4);
         min-width: 220px;
-        transition: all 600ms ease-in-out;
+        transition: all 600ms linear;
 
         &:hover {
-        transform: scale(1.05);
-        background-image: linear-gradient($primary, $secondary);
-        box-shadow: 0 6px 10px rgba($primary, 0.6);
+            opacity: 0.8;
+            box-shadow: 0 6px 10px rgba($primary, 0.6);
         }
 
         &:visited {
-        color: white;
+            color: white;
         }
     }
 
@@ -126,15 +202,17 @@ $tertiary:  #99e2d0;
     .carte__bouton {
         width: 90%;
         height: 75px;
-        background-color: rgba($primary, 0.2);
+        background-color: rgba($primary, 0.3);
+        opacity: 1;
         border-radius: 15px;
         display: flex;
         align-items: center;
         box-shadow: 0 6px 10px rgba($primary, 0.4);
         margin: 0 0 10px 20px;
+        transition: all 400ms linear;
 
         &:hover {
-            background-color: rgba($primary, 0.1);
+            opacity: 0.7;
             box-shadow: 0 6px 5px rgba($primary, 0.5);
         }
 
@@ -174,8 +252,8 @@ $tertiary:  #99e2d0;
         padding-bottom: 2rem;
 
         .card__heading {
-            width: 99%;
-            margin: 1.9rem 0 0 1.2rem;
+            width: 97%;
+            margin: 1.9rem 0 0 1.5rem;
         }
 
         .card__link {
@@ -230,18 +308,21 @@ $tertiary:  #99e2d0;
         }
 
         & .vide {
-            color: rgba(#000, 1);
+            color: #000;
+            opacity: 1;
+            transition: color 1s;
             &:active {
-                color: rgba(#000, 0);
+                opacity: 0;
                 z-index: 1;
             }
         }
     
         & .plain {
-            color: rgba($primary, 0);
+            color: $primary;
+            opacity: 0;
             transition: color 1s;
             &:active {
-                color: rgba($primary, 1);
+                opacity: 1;
                 z-index: 2;
             }
         }    
@@ -325,7 +406,7 @@ $tertiary:  #99e2d0;
     .corps-page {
         width: 100%;
         border-radius: 2rem 2rem 0 0;
-        background-color: #e1dbe7;
+        background-color: #ece3f5;
         display: flex;
         flex-direction: column;
         justify-content: flex-start ;
