@@ -234,34 +234,6 @@ $tertiary:  #99e2d0;
             color: $primary;
         }
     }
-    .carte--modif {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        height: auto;
-        opacity: 1;
-        animation: carte 3s ease-in-out;
-    }
-
-    @keyframes carte {
-        0% {
-            opacity: 0;
-        }
-        20% {
-            opacity: 0.2 0;
-        }
-        50% {
-            opacity: 0.4 0;
-        }
-        75% {
-            opacity: 0.7 0;
-        }
-        100% {
-            transform: scaleY(1);
-            opacity: 1;
-        }
-
-    }
 
 
     /*Styles pour carte des restaurants*/
@@ -485,6 +457,38 @@ $tertiary:  #99e2d0;
         margin: 0 0 1rem 1rem;
     }
 
+
+$num-carte: 4;
+$anim-dur: 3000ms;
+$anim-delay: $anim-dur/$num-carte;
+
+    .carte--modif {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        height: auto;
+        .carte__bouton--modif {
+            opacity: 1;
+            animation: carte $anim-dur both;
+            @for $i from 1 through $num-carte {
+                &--#{$i} {
+                    animation-delay: $anim-delay*$i;
+                }
+            }
+        }
+    }
+
+    @keyframes carte {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            transform: scaleY(1);
+            opacity: 1;
+        }
+
+    }
+
     .carte__bouton--modif {
         width: 93%;
         background-color:white;
@@ -496,8 +500,8 @@ $tertiary:  #99e2d0;
 
         h4 {
             height: 96%;
-            padding: 2.4rem 0 0 0.8rem;
-            margin: 0;
+            padding: 2.8rem 0.4rem 0 0.4rem;
+            margin: 0 0.1rem;
             transition: transform 500ms ease-out;
         }
 
@@ -553,25 +557,27 @@ $tertiary:  #99e2d0;
         &:active  .fa-check-circle {
             transform: rotate(0deg);
         }
-    }
 
-    .carte__bouton--special {
-        height: 100px;
-        h4 {
-            padding-top: 3.9rem;
+        .carte__bouton--special {
+            height: 100px;
+            h4 {
+                padding-top: 3.9rem;
+            }
+        }
+    
+        .carte__bouton--modif h4 {
+            margin: 5px 10px 5px 0;
+        }
+    
+        .carte__bouton--modif p {
+            font-size: 0.95rem;
+        }
+    
+        &:hover {
+            background-color: #fff;
+            box-shadow: none;
         }
     }
 
-    .carte__bouton--modif h4 {
-        margin: 5px 10px 5px 0;
-    }
-
-    .carte__bouton--modif p {
-        font-size: 0.95rem;
-    }
-
-    .carte__bouton--modif:hover {
-        background-color: #fff;
-        box-shadow: none;
-    }
+    
 }
