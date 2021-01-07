@@ -557,13 +557,6 @@ $anim-delay: $anim-dur/$num-carte;
         &:active  .fa-check-circle {
             transform: rotate(0deg);
         }
-
-        .carte__bouton--special {
-            height: 100px;
-            h4 {
-                padding-top: 3.9rem;
-            }
-        }
     
         .carte__bouton--modif h4 {
             margin: 5px 10px 5px 0;
@@ -576,6 +569,13 @@ $anim-delay: $anim-dur/$num-carte;
         &:hover {
             background-color: #fff;
             box-shadow: none;
+        }
+    }
+    
+    .carte__bouton--special {
+        height: 100px;
+        h4 {
+            padding-top: 3.9rem;
         }
     }
 
