@@ -451,19 +451,29 @@ $tertiary:  #99e2d0;
         margin: 0 0 1rem 1rem;
     }
 
+    $num-c: 3;
+    $anim-d: 1800ms;
+    $anim-delay1: $anim-d/$num-c;
 
-$num-carte: 4;
-$anim-dur: 3000ms;
-$anim-delay: $anim-dur/$num-carte;
+    $num-carte: 4;
+    $anim-dur: 1500ms;
+    $anim-delay: $anim-dur/$num-carte;
 
     .carte--modif {
         margin: 0;
         padding: 0;
         position: relative;
         height: auto;
+        opacity: 1;
+        animation: carte $anim-d linear backwards;
+        @for $i from 1 through $num-c {
+            &--#{$i} {
+                animation-delay: $anim-delay1*$i;
+            }
+         
         .carte__bouton--modif {
             opacity: 1;
-            animation: carte $anim-dur both;
+            animation: carte $anim-dur linear backwards;
             @for $i from 1 through $num-carte {
                 &--#{$i} {
                     animation-delay: $anim-delay*$i;
@@ -573,5 +583,5 @@ $anim-delay: $anim-dur/$num-carte;
         }
     }
 
-    
+} 
 }

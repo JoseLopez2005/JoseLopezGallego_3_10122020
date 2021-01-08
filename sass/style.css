@@ -507,27 +507,84 @@
     padding: 0;
     position: relative;
     height: auto;
+    opacity: 1;
+    -webkit-animation: carte 1800ms linear backwards;
+            animation: carte 1800ms linear backwards;
+  }
+  .carte--modif--1 {
+    -webkit-animation-delay: 600ms;
+            animation-delay: 600ms;
   }
   .carte--modif .carte__bouton--modif {
     opacity: 1;
-    -webkit-animation: carte 3000ms both;
-            animation: carte 3000ms both;
+    -webkit-animation: carte 1500ms linear backwards;
+            animation: carte 1500ms linear backwards;
   }
   .carte--modif .carte__bouton--modif--1 {
+    -webkit-animation-delay: 375ms;
+            animation-delay: 375ms;
+  }
+  .carte--modif .carte__bouton--modif--2 {
     -webkit-animation-delay: 750ms;
             animation-delay: 750ms;
   }
-  .carte--modif .carte__bouton--modif--2 {
+  .carte--modif .carte__bouton--modif--3 {
+    -webkit-animation-delay: 1125ms;
+            animation-delay: 1125ms;
+  }
+  .carte--modif .carte__bouton--modif--4 {
     -webkit-animation-delay: 1500ms;
             animation-delay: 1500ms;
   }
+  .carte--modif--2 {
+    -webkit-animation-delay: 1200ms;
+            animation-delay: 1200ms;
+  }
+  .carte--modif .carte__bouton--modif {
+    opacity: 1;
+    -webkit-animation: carte 1500ms linear backwards;
+            animation: carte 1500ms linear backwards;
+  }
+  .carte--modif .carte__bouton--modif--1 {
+    -webkit-animation-delay: 375ms;
+            animation-delay: 375ms;
+  }
+  .carte--modif .carte__bouton--modif--2 {
+    -webkit-animation-delay: 750ms;
+            animation-delay: 750ms;
+  }
   .carte--modif .carte__bouton--modif--3 {
-    -webkit-animation-delay: 2250ms;
-            animation-delay: 2250ms;
+    -webkit-animation-delay: 1125ms;
+            animation-delay: 1125ms;
   }
   .carte--modif .carte__bouton--modif--4 {
-    -webkit-animation-delay: 3000ms;
-            animation-delay: 3000ms;
+    -webkit-animation-delay: 1500ms;
+            animation-delay: 1500ms;
+  }
+  .carte--modif--3 {
+    -webkit-animation-delay: 1800ms;
+            animation-delay: 1800ms;
+  }
+  .carte--modif .carte__bouton--modif {
+    opacity: 1;
+    -webkit-animation: carte 1500ms linear backwards;
+            animation: carte 1500ms linear backwards;
+  }
+  .carte--modif .carte__bouton--modif--1 {
+    -webkit-animation-delay: 375ms;
+            animation-delay: 375ms;
+  }
+  .carte--modif .carte__bouton--modif--2 {
+    -webkit-animation-delay: 750ms;
+            animation-delay: 750ms;
+  }
+  .carte--modif .carte__bouton--modif--3 {
+    -webkit-animation-delay: 1125ms;
+            animation-delay: 1125ms;
+  }
+  .carte--modif .carte__bouton--modif--4 {
+    -webkit-animation-delay: 1500ms;
+            animation-delay: 1500ms;
   }
   @-webkit-keyframes carte {
     0% {
@@ -549,7 +606,7 @@
       opacity: 1;
     }
   }
-  .carte__bouton--modif {
+  .carte--modif .carte__bouton--modif {
     width: 93%;
     background-color: white;
     -webkit-box-shadow: none;
@@ -563,7 +620,7 @@
     margin-left: 0.75rem;
     padding: 0;
   }
-  .carte__bouton--modif h4 {
+  .carte--modif .carte__bouton--modif h4 {
     height: 96%;
     padding: 2.8rem 0.4rem 0 0.4rem;
     margin: 0 0.1rem;
@@ -572,25 +629,25 @@
     transition: transform 500ms ease-out;
     transition: transform 500ms ease-out, -webkit-transform 500ms ease-out;
   }
-  .carte__bouton--modif:active > h4 {
+  .carte--modif .carte__bouton--modif:active > h4 {
     -webkit-transform: translateX(-20%);
             transform: translateX(-20%);
   }
-  .carte__bouton--modif:hover {
+  .carte--modif .carte__bouton--modif:hover {
     cursor: pointer;
   }
-  .carte__bouton--modif .card__text {
+  .carte--modif .carte__bouton--modif .card__text {
     margin-top: 0.8rem;
     width: 100%;
     min-width: 67%;
   }
-  .carte__bouton--modif .card__text > * {
+  .carte--modif .carte__bouton--modif .card__text > * {
     margin: 0.3rem 0 0 0.7rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  .carte__bouton--modif .check {
+  .carte--modif .carte__bouton--modif .check {
     width: 0;
     height: 0;
     margin: 0;
@@ -598,7 +655,7 @@
     visibility: hidden;
     opacity: 0;
   }
-  .carte__bouton--modif .check > .fa-check-circle {
+  .carte--modif .carte__bouton--modif .check > .fa-check-circle {
     display: inline-block;
     -webkit-transform: rotate(-90deg);
             transform: rotate(-90deg);
@@ -607,7 +664,7 @@
     transition: transform 500ms ease-in-out;
     transition: transform 500ms ease-in-out, -webkit-transform 500ms ease-in-out;
   }
-  .carte__bouton--modif:active > .check {
+  .carte--modif .carte__bouton--modif:active > .check {
     width: 25%;
     height: 100%;
     font-size: 1.5rem;
@@ -620,25 +677,25 @@
     -webkit-transition: opacity 500ms ease-in-out;
     transition: opacity 500ms ease-in-out;
   }
-  .carte__bouton--modif:active .fa-check-circle {
+  .carte--modif .carte__bouton--modif:active .fa-check-circle {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  .carte__bouton--modif .carte__bouton--modif h4 {
+  .carte--modif .carte__bouton--modif .carte__bouton--modif h4 {
     margin: 5px 10px 5px 0;
   }
-  .carte__bouton--modif .carte__bouton--modif p {
+  .carte--modif .carte__bouton--modif .carte__bouton--modif p {
     font-size: 0.95rem;
   }
-  .carte__bouton--modif:hover {
+  .carte--modif .carte__bouton--modif:hover {
     background-color: #fff;
     -webkit-box-shadow: none;
             box-shadow: none;
   }
-  .carte__bouton--special {
+  .carte--modif .carte__bouton--special {
     height: 100px;
   }
-  .carte__bouton--special h4 {
+  .carte--modif .carte__bouton--special h4 {
     padding-top: 3.9rem;
   }
 }
