@@ -4,15 +4,13 @@
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="sass/style.css" media="all"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet"> 
         <script src="https://kit.fontawesome.com/f03f98bc68.js" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>La note enchantée</title>
 	</head>
 	
 	<body>
-		<div class="bloc-page"><!--En-tête du chacun des menus des restaurants-->
+		<div class="block-page"><!--En-tête du chacun des menus des restaurants-->
             <header class="entete"><!--Logo et flèche de retour-->
 				<a href="index.html" class="entete__fleche"><i class="fas fa-arrow-left"></i></a>
 				<p class="entete__logo">ohmyfood</p>
@@ -22,18 +20,18 @@
 				<img src="images_accueil/noteenchantee.jpg" alt="lanoteenchantee"/>
 			</span>
 
-			<section class="corps-page">
-				<div class="corps-page__heading">
-					<p class="corps-page__titre">La note enchantée</p>
-			
+			<section class="corps">
+				<div class="corps__heading">
+					<p class="corps__titre">La note enchantée</p>
+		
 					<span class="heart heart--modif"><i class="far fa-heart vide"></i></span>
 					<span class="heart heart--modif"><i class="fas fa-heart plain"></i></span>
-
 				</div>
-				<div class="carte carte--modif carte--modif--1">
-					<p class="carte__heading">ENTRÉES</p>
+
+				<div class="carte-menu carte-menu--1">
+					<p class="carte-menu__heading">ENTRÉES</p>
 					<hr />
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--1">
+					<div class="carte-bouton--modif carte-bouton--modif--1">
 						<div class="card__text">
 							<h3>Ravioles de foie gras</h3>
 							<p>Accompagnés de leur crème à la truffe</p>
@@ -43,7 +41,7 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--2">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--2">
 						<div class="card__text">
 							<h3>Caviar osciètre</h3>
 							<p>Sur blini à la farine de blé noir</p>
@@ -53,7 +51,7 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--3">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--3">
 						<div class="card__text">
 							<h3>Homard et espuma de potiron</h3>
 							<p>Mariné aux zests d'orange </p>
@@ -62,8 +60,8 @@
 						<button type="button" class="check">
 							<i class="fas fa-check-circle"></i>
 						</button>
-                    </div>
-                    <div class="carte__bouton carte__bouton--modif carte__bouton--modif--4">
+					</div>
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--4">
 						<div class="card__text">
 							<h3>Foie gras de canard cuit entier</h3>
 							<p>Confiture de figue et pain toasté</p>
@@ -75,10 +73,10 @@
 					</div>
 				</div>
 
-				<div class="carte carte--modif carte--modif--2">
-					<p class="carte__heading">PLATS</p>
+				<div class="carte-menu carte-menu--2">
+					<p class="carte-menu__heading">PLATS</p>
 					<hr />
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--1">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--1">
 						<div class="card__text">
 							<h3>Noix de coquilles Saint-Jacques</h3>
 							<p>Sur lit de purée de céleri-rave</p>
@@ -88,7 +86,7 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--2">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--2">
 						<div class="card__text">
 							<h3>Langoustine poêlée</h3>
 							<p>Purée de patate douce</p>
@@ -98,7 +96,7 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--3">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--3">
 						<div class="card__text">
 							<h3>Mijoté de queue de boeuf</h3>
 							<p>Et riz sauvage aux zestes de citron</p>
@@ -108,12 +106,13 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
+					<div class="carte-bouton carte-bouton--modif carte-bouton__special"></div>
 				</div>
 
-				<div class="carte carte--modif carte--modif--3">
-					<p class="carte__heading">DESSERTS</p>
+				<div class="carte-menu carte-menu--3">
+					<p class="carte-menu__heading">DESSERTS</p>
 					<hr />
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--1">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--1">
 						<div class="card__text">
 							<h3>Macaron noisette et chocolat</h3>
 							<p>Glace au caramel brun et sel de Guérande</p>
@@ -123,7 +122,7 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--2">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--2">
 						<div class="card__text">
 							<h3>Baba au rhum revisité</h3>
 							<p>Avec son coulis de citron</p>
@@ -133,7 +132,7 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
-					<div class="carte__bouton carte__bouton--modif carte__bouton--modif--3">
+					<div class="carte-bouton carte-bouton--modif carte-bouton--modif--3">
 						<div class="card__text">
 							<h3>Tarte au citron meringuée</h3>
 							<p>Destructurée</p>
@@ -143,22 +142,23 @@
 							<i class="fas fa-check-circle"></i>
 						</button>
 					</div>
+					<div class="carte-bouton carte-bouton--modif carte-bouton__special"></div>
 				</div>
 
 				
-				<a href="#" role="button" class="bouton">						
-					<h4 class="bouton__text">Commander</h4>
+				<a href="#" role="button" class="bouton-menu">						
+					<h4>Commander</h4>
 				</a>
 
 				<footer class="pied"> <!--Le pied de page pour toutes les pages du site-->
-				<p class="pied__logo">ohmyfood</p>
-				<ul class="pied-nav">
-					<li><a href="#" class="pied-nav__lien"><i class="fas fa-utensils"></i> Proposer un restaurant </a></li>
-					<li><a href="#" class="pied-nav__lien"><i class="fas fa-hands-helping"></i>Devenir partenaire </a></li>
-					<li><a href="#" class="pied-nav__lien">Mentions légales </a></li>
-					<li><a href="mailto:contact@ohmyfoot.fr" class="pied-nav__lien">Contact</a></li>
-				</ul>
-			</footer>
+					<p class="pied__logo">ohmyfood</p>
+					<ul class="pied-nav">
+						<li><a href="#" class="pied-nav__lien"><i class="fas fa-utensils"></i> Proposer un restaurant </a></li>
+						<li><a href="#" class="pied-nav__lien"><i class="fas fa-hands-helping"></i>Devenir partenaire </a></li>
+						<li><a href="#" class="pied-nav__lien">Mentions légales </a></li>
+						<li><a href="mailto:contact@ohmyfoot.fr" class="pied-nav__lien">Contact</a></li>
+					</ul>
+				</footer>
 			</section>
 		</div>
 	</body>

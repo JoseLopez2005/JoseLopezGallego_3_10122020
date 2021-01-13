@@ -1,16 +1,14 @@
-@media (max-width:480px) {
-	/* Ici on va definir les styles CSS pour les plus petits écrans*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
+
+@import "libs/mixins.scss";
+@import "libs/responsives.scss";
+
 
 $primary: #9356dc;
 $secondary: #ff79da;
 $tertiary:  #99e2d0;
-
-@mixin loader($color: $primary, $size: 10px) {
-    width: $size;
-    height: $size;
-    border-top-color: $color;
-    border-left-color: $color;
-}
+$white: #fff;
+$black:#000;
 
 %loader {
     position: absolute;
@@ -19,304 +17,355 @@ $tertiary:  #99e2d0;
     border: solid 0.25rem transparent;
     border-radius: 50%;
 }
-        
-    * {
-        box-sizing: border-box;
+
+%button {
+    border-radius: 3.15rem;
+    background-image: linear-gradient($secondary, $primary);
+    opacity: 1;
+    font-size: 1rem;
+    font-weight: 300;
+    color: $white;
+    text-align: center;
+    padding: 0;
+    margin: 1.5rem 0;
+    box-shadow: 0 6px 10px rgba($primary, 0.4);
+    min-width: 220px;
+    transition: all 600ms ease-in-out;
+
+    &:hover {
+        opacity: 0.8;
+        box-shadow: 0 6px 10px rgba($primary, 0.6);
     }
 
-    body {
-        font-size: 16px;
-        font-family: 'Roboto', cursive, sans-serif;
-        color: #000;
-        margin: 0;
+    &:visited {
+        color: $white;
     }
 
-    h2, h3, h4 {
-        font-weight: 700;
+}
+
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    transform: scaleY(0);
+    animation: loader-spinner 2s linear;
+    z-index: 10;
+    background: $tertiary;
+
+    &__1 {
+        @include loader($primary, 100px);
+        @extend %loader;
+        animation: loader1 1.6s linear infinite;
+    }
+
+    &__2 {
+        @include loader(white, 75px);
+        @extend %loader;
+        animation: loader2 1.4s linear infinite;
     }
     
-    a {
-        color: #000;
-        text-decoration: none;
-        
-        &:visited {
-            color: #000;
-        }
+    &__3 {
+        @include loader($secondary, 50px);
+        @extend %loader;
+        animation: loader1 1.2s linear infinite;
     }
+}
 
-    .block-page {
-        width: 100%;
-        z-index: 11;
+
+@keyframes loader-spinner{
+    0% {
+        transform: scale(1);
+    }   
+    100% {
+        transform: scale(1);
     }
+}
 
-    .loader {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        transform-origin: top;
-        transform: scaleY(0);
-        animation: loader-spinner 2s linear;
-        z-index: 10;
-        background: $tertiary;
+@keyframes loader1{
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
 
-        &__1 {
-            @include loader($primary, 100px);
-            @extend %loader;
-            animation: loader1 1.6s linear infinite;
-        }
+@keyframes loader2{
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
 
-        &__2 {
-            @include loader(white, 75px);
-            @extend %loader;
-            animation: loader2 1.4s linear infinite;
-        }
-        
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Roboto', cursive, sans-serif;
+    color:$black;
+    margin: 0;
+}
+
+h2, h3, h4 {
+    font-weight: 700;
+}
     
-        &__3 {
-            @include loader($secondary, 50px);
-            @extend %loader;
-            animation: loader1 1.2s linear infinite;
-        }
+a {
+    color: $black;
+    text-decoration: none;      
+    &:visited {
+        color: $black;
     }
+}
 
-
-    @keyframes loader-spinner{
-        0% {
-            transform: scale(1);
-        }   
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    @keyframes loader1{
-        from {
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-        to {
-            transform: translate(-50%, -50%) rotate(360deg);
-        }
-    }
-
-    @keyframes loader2{
-        from {
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-        to {
-            transform: translate(-50%, -50%) rotate(-360deg);
-        }
-    }
-   
-
-    .entete {
+.block-page {
+    width: 90%;
+    margin: auto;
+    overflow: auto;
+    @media #{$small-down} {
         width: 100%;
-        height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         margin: 0;
-        &__logo {
-            font-family: 'Shrikhand', sans-serif;
-            font-size: 1.8rem;
-            padding-top: 10px;
-            margin: 0;
-        }
+        padding: 0;
     }
+}
 
-    .explorer {
-        width: 100%;
-        height: 340px;
-        background-color: rgba($primary, 0.15);
-        display: flex;
+.entete {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0.5rem 0;
+    @media #{$small-down} {
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+        margin: 0;
+    }
+    &__logo {
+        font-family: 'Shrikhand', sans-serif;
+        font-size: 2.2rem;
         text-align: center;
         margin: 0;
-        &__geo {
-            height: 3.5rem;
-            background-color: rgba($primary, 0.2);
-            display: block;
-            border: 0;
-        }
-        &__titre {
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        &__text {
-            font-size: 1.1rem;
-            font-weight: 300;
-            margin: 0;
+        padding-top: 0.6rem;
+        @media #{$small-down} {
+            font-size: 1.8rem;
         }
     }
-
-    .explorer__icon {
-        font-size: 1rem;
-        font-weight: 500;
-        margin: 1.15rem 0;
+    .localisation {
+        height: 3.3rem;
+        background-color: rgba($primary, 0.2);
+        display: block;
+        border: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 0.25rem;
+        @media #{$small-down} {
+            width: 100%;
+            position: relative;
+        }
+        &__icon {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 1.15rem 0;
+            padding: 1.25rem;
+        }
     }
+    &__fleche {
+        font-size: 1.3em;
+        margin: auto;
+        position: absolute;
+        top: 1.25rem;
+        left: 1.25rem;
+    }
+}
 
-    .bouton {
-        border-radius: 3.15rem;
-        background-image: linear-gradient($secondary, $primary);
-        opacity: 1;
+.explorer {
+    width: 100%;
+    display: block;
+    background-color: rgba($primary, 0.15);
+    position: relative;
+    padding: 1rem;
+    &__titre {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+        @media #{$medium-down} {
+            padding: 0 5rem;
+        }
+    }
+    &__text {
         font-size: 1rem;
         font-weight: 300;
-        color: white;
-        text-align: center;
-        padding: 0;
-        margin: 1.8rem 0;
-        box-shadow: 0 6px 10px rgba($primary, 0.4);
-        min-width: 220px;
-        transition: all 600ms linear;
-
-        &:hover {
-            opacity: 0.8;
-            box-shadow: 0 6px 10px rgba($primary, 0.6);
-        }
-
-        &:visited {
-            color: white;
+        margin: 0;
+        @media #{$medium-down} {
+            padding: 0 2.5rem;
         }
     }
 
-    .carte {
-        width: 100%;
-        height: 340px;
-        margin-bottom: 2.5rem;
+    @media #{$medium-down} {
         display: flex;
+        margin: 0;
         flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
+    }
+}
 
-        &__heading {
-            margin: 1.5rem 0 0.3rem 1rem;
+.bouton {
+    @extend %button;
+    position: absolute;
+    top: 0.4rem;
+    right: 2rem;
+    @media #{$medium-down} {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+}
+
+.bouton-menu {
+    @extend %button;
+    @media #{$medium-down} {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+}
+
+.carte {
+    width: 100%;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media #{$medium-down} {
+        padding: 0 0.25rem;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    &__heading {
+        margin: 1rem 0 0 0;
+        font-size: 1.2rem;
+        @media #{$medium-down} {
+            margin-left: 1rem;
+            font-size: 1.5rem;
         }
     }
 
-    .carte__bouton {
-        width: 90%;
+    .carte-bouton {
+        width: 25%;
+        margin: 0.5rem 0.5rem;
+        padding: 0;
         height: 75px;
         background-color: rgba($primary, 0.3);
         border-radius: 15px;
         display: flex;
         align-items: center;
         box-shadow: 0 6px 10px rgba($primary, 0.4);
-        margin: 0 0 10px 20px;
         transition: all 400ms linear;
-
+        @media #{$medium-down} {
+            width: 90%;
+            margin-left: 1.5rem;
+        }
+    
         &:hover {
             background-color: rgba($primary, 0.2);
             box-shadow: 0 6px 5px rgba($primary, 0.5);
         }
-
-        .carte__text {
+    
+        &__text {
             color: white;
             border-radius: 100%;
             background: $primary;
             padding: 4px 8px 4px 8px;
             display: inline-block;
-            margin-right: 0.5rem;
+            margin-right: -0.5rem;
             position: relative;
-            top: 0;
+            top: -2rem;
             left: -0.75rem;
+            @media #{$medium-down} {
+                top: 0;
+            }
         }
-
-        .carte__icon {
-            margin-right: 10px;
+    
+        &__icon {
+            margin-right: 0.5rem;
             font-size: 1.2rem;
             color: $primary;
+            @media #{$medium-down} {
+                margin-left: 0.5rem;
+            }
         }
     }
+}
 
+/*Styles pour carte des restaurants*/
+.card {
+    width: 100%;
+    background-color: rgba($primary, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 2rem;
 
-    /*Styles pour carte des restaurants*/
-    .card { 
+    &__heading {
         width: 100%;
-        height: 1230px;
-        background-color: rgba($primary, 0.2);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        padding-bottom: 2rem;
+        margin: 1.5rem 0 1rem 1.5rem;
+    }
 
-        .card__heading {
-            width: 97%;
-            margin: 1.9rem 0 0 1.5rem;
-        }
-
-        .card__link {
+    &__link {
         background-color: #fff;
-        width: 90%;
+        width: 45%;
+        max-width: 450px;
         height: 260px;
         border-radius: 15px;
-        margin: 0;
+        margin: 0.5rem 0.5rem;
         box-shadow: 0 3px 3px rgba($primary, 0.2);
         position: relative;
         top: 0;
         right: 0;
+        @media #{$small-down} {
+            width: 90%;
+        }
 
+        .card__box img {
+            width: 100%;
+            height: 175px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        @supports(object-fit: cover) {
             .card__box img {
-                width: 100%;
-                height: 175px;
-                border-radius: 15px 15px 0 0;
+                object-fit: cover;
+                object-position: bottom center; 
             }
+        }
 
-            @supports(object-fit: cover) 
-            {.card__box img {
-            object-fit: cover;
-            object-position: bottom center; }
-            }
-
-            .card__caption {
-                width: 100%;
-                height: 70px;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content:  space-between;
-                align-items: center;
-            
-                .card__text > * {
-                    margin: 0.25rem 0 0 1rem;
-                }
-            }
+        .card__caption {
+            width: 100%;
+            height: 70px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content:  space-between;
+            align-items: center;
+        }
+        .card__text > * {
+            margin: 0.25rem 0 0 1rem;
         }
     }
-
-    .heart {
-        position: absolute;
-        top: 195px;
-        right: 25px;
-        font-size: 1.8rem;
-        border: 0;
-        margin-right: 10px;
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        .vide {
-            color: rgba(#000, 1);
-            &:active {
-                color: rgba(#000, 0);
-                z-index: 1;
-            }
-        }
-    
-        & .plain {
-            color: rgba($primary, 0);
-            transition: color 1s;
-            &:active {
-                color: rgba($primary, 1);
-                z-index: 2;
-            }
-        }    
-    }
-
-    /*Pour le bouton Nouveau */
-    .card__new { 
+    /*Spécifications pour le bouton Nouveau*/
+    &__new { 
         font-size: 1rem;
         font-weight: bold;
         color: darken($tertiary, 40);
@@ -327,261 +376,331 @@ $tertiary:  #99e2d0;
         top: 1.2rem;
         right: 1.2rem;
         background-color: $tertiary;
-    }    
+    }
+}
 
-    /*Pour le pied de page*/
-    .pied {
-        width: 100%;
+.heart { /*Proprietés associées à l'animation Like*/
+    position: absolute;
+    top: 195px;
+    right: 25px;
+    font-size: 1.8rem;
+    border: 0;
+    margin-right: 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    & .vide {
+        color: rgba(#000, 1);
+        &:active {
+            color: rgba(#000, 0);
+            z-index: 1;
+        }
+    }
+
+    & .plain {
+        color: rgba($primary, 0);
+        transition: color 1s;
+        &:active {
+            color: rgba($primary, 1);
+            z-index: 2;
+        }
+    }    
+}    
+
+/*Pour le pied de page*/
+.pied {
+    width: 100%;
+    background-color: black;
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    &__logo {
+        font-family: 'Shrikhand', sans-serif;
+        font-size: 1.2rem;
+        text-align: center;
+        color:white;
+        padding: 0;
+        margin-top: 0.6rem;
+        margin-bottom: 0;
+        @media #{$small-down} {
+            margin-left: 0.6rem;
+            text-align: left;
+        }
+    }
+    @media #{$small-down} {
         height: 200px;
         background-color: black;
         padding: 1rem;
-        &__logo {
-            font-family: 'Shrikhand', sans-serif;
-            font-size: 1.2rem;
-            color:white;
-            padding: 0;
-            margin: 0 0 0 10px;
-        }
-
-        .pied-nav {
-            list-style: none;
-            padding-left: 8px;
-            li > a {
-                display: inline-block;
-                color: white;
-                font-weight: 500;
-                margin-top: 5px;
-                
-                &:visited {
-                color: white;
-                }
-            }
-        }
     }
 
-    .fa-utensils {
-        height: 1rem;
-        margin-right: 5px;
-    }
-
-    .fa-hands-helping {
-        font-size: 0.9rem;
-        margin-right: 5px;
-    }
-
-    /*Pour les sites des restaurants*/
-    .entete__fleche {
-        font-size: 1.4em;
-        margin: auto;
-        position: absolute;
-        top: 25px;
-        left: 20px;
-    }
-
-    .card__box--modif img {
-        width: 100%;
-        height: 240px;
-        border-radius: 0;
-    }
-
-    @supports(object-fit: cover) 
-    {.card__box--modif img {
-    object-fit: cover;
-    object-position: center center; }
-    }
-    
-    .corps-page {
-        width: 100%;
-        border-radius: 2rem 2rem 0 0;
-        background-color: #ece3f5;
+    .pied-nav {
+        list-style: none;
+        padding: 0 0.4rem;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start ;
-        align-items: center;
-        position: absolute;
-        top: 280px;
-        right: 0;
-        margin: 0;
-
-        &__heading {
-            width: 95%;
-            margin: 1.5rem 0 0 1rem;
-            align-items: center;
-
-            .corps-page__titre {
-                font-family: 'Shrikhand', sans-serif;
-                font-size: 1.8rem;
-                margin: 0;
-                padding: 0;
-                letter-spacing: 1px;
+        justify-content: center;
+        @media #{$small-down} {
+            flex-direction: column;
+        }
+        li > a {
+            display: inline-block;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            @media #{$small-down} {
+                font-size: 1rem;
+                margin: 0.25rem;
             }
-            .heart--modif{
-                position: absolute;
-                top: 30px;
-                right: 20px;
-                transition: 1s;
-            }
-    
-            &:hover {
-                cursor: pointer;
-            }
-    
-            & .vide {
-                color: rgba(#000, 1);
-                &:active {
-                    color: rgba(#000, 0);
-                    z-index: 1;
-                }
-            }
-        
-            & .plain {
-                color: rgba($primary, 0);
-                transition: color 1s;
-                &:active {
-                    color: rgba($primary, 1);
-                    z-index: 2;
-                }
+            
+            &:visited {
+            color: white;
             }
         }
     }
+}
 
-    .carte hr {
+.fa-utensils {
+    height: 1rem;
+    margin-right: 5px;
+}
+
+.fa-hands-helping {
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+.card__box--modif img {
+    width: 100%;
+    height: 240px;
+    border-radius: 0;
+}
+
+@supports(object-fit: cover) {
+    .card__box--modif img {
+        object-fit: cover;
+        object-position: center center; 
+    }
+}
+
+.corps {
+    width: 100%;
+    border-radius: 2rem 2rem 0 0;
+    background-color: #ece3f5;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    top: -2rem;
+    right: 0;
+    margin: 0;
+    @media #{$medium-down} {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__heading {
+        width: 95%;
+        margin: 1.5rem 0 1rem 1rem;
+        align-items: center;
+    }
+    &__titre {
+        font-family: 'Shrikhand', sans-serif;
+        font-size: 1.8rem;
+        margin: 0;
+        padding: 0;
+        letter-spacing: 1px;
+    }
+}
+
+.heart--modif{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    transition: 1s;
+
+    &:hover {
+        cursor: pointer;
+    }
+    
+    & .vide {
+        color: rgba(#000, 1);
+        &:active {
+            color: rgba(#000, 0);
+            z-index: 1;
+        }
+    }
+    
+    & .plain {
+        color: rgba($primary, 0);
+        transition: color 1s;
+        &:active {
+            color: rgba($primary, 1);
+            z-index: 2;
+        }
+    }
+}
+
+$num-c: 3;
+$anim-d: 1800ms;
+$anim-delay1: $anim-d/$num-c;
+
+$num-carte: 4;
+$anim-dur: 1500ms;
+$anim-delay: $anim-dur/$num-carte;
+
+.carte-menu {
+    width: 32%;
+    height: auto;
+    border-radius: 1rem;
+    background-color: rgba($primary, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    left: 0;
+    opacity: 1;
+    animation: carte $anim-d linear backwards;
+
+    @media #{$medium-down} {
+        width: 100%;
+        margin-left: 0;
+        font-size: 1.2rem;
+        background-color: rgba($primary, 0)
+     
+    }
+    @for $i from 1 through $num-c {
+        &--#{$i} {
+            animation-delay: $anim-delay1*$i;
+        }
+    }
+    & > hr {
         width: 40px;
         border: 2px solid $tertiary;
         margin: 0 0 1rem 1rem;
+    }   
+    
+    &__heading {
+        margin: 1rem;
+        font-size: 1.5rem;
+        @media #{$medium-down} {
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@keyframes carte {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
     }
 
-    $num-c: 3;
-    $anim-d: 1800ms;
-    $anim-delay1: $anim-d/$num-c;
+}
 
-    $num-carte: 4;
-    $anim-dur: 1500ms;
-    $anim-delay: $anim-dur/$num-carte;
+.carte-bouton--modif {
+    width: 95%;
+    height: 5rem;
+    font-size: 1rem;
+    background-color:white;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0.5rem;
+    padding: 0;
+    opacity: 1;
+    animation: carte $anim-dur linear backwards;
+    @for $i from 1 through $num-carte {
+        &--#{$i} {
+            animation-delay: $anim-delay*$i;
+        }
+    }
 
-    .carte--modif {
+    h4 {
+        height: 97%;
+        padding: 2.9rem 0.4rem 0 0.4rem;
+        margin: 0 0.1rem;
+        transition: transform 500ms ease-out;
+    }
+
+    &:active > h4 {
+        transform: translateX(-20%);
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+        
+    .card__text {
+        margin: 0.8rem 0;
+        width: 100%;
+        min-width: 67%;
+        & > * {
+            margin: 0.3rem 0 0 0.7rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .check {
+        width: 0;
+        height: 0;
         margin: 0;
         padding: 0;
-        position: relative;
-        height: auto;
+        visibility: hidden;
+        opacity: 0;
+
+        & >.fa-check-circle {
+            display: inline-block;
+            transform: rotate(-90deg);
+            transition: transform 500ms ease-in-out;
+        }
+    }
+
+    &:active > .check {
+        width: 25%;
+        height: 100%;
+        font-size: 1.5rem;
+        color: #fff;
+        background-color: $tertiary;
+        border-radius: 0 15px 15px 0;
+        border: none;
+        visibility: visible;
         opacity: 1;
-        animation: carte $anim-d linear backwards;
-        @for $i from 1 through $num-c {
-            &--#{$i} {
-                animation-delay: $anim-delay1*$i;
-            }
-         
-        .carte__bouton--modif {
-            opacity: 1;
-            animation: carte $anim-dur linear backwards;
-            @for $i from 1 through $num-carte {
-                &--#{$i} {
-                    animation-delay: $anim-delay*$i;
-                }
-            }
-        }
+        transition: opacity 500ms ease-in-out;
     }
 
-    @keyframes carte {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            transform: scaleY(1);
-            opacity: 1;
-        }
-
+    &:active  .fa-check-circle {
+        transform: rotate(0deg);
     }
 
-    .carte__bouton--modif {
-        width: 93%;
-        background-color:white;
+    .carte-bouton--modif h4 {
+        margin: 5px 10px 5px 0;
+    }
+
+    .carte-bouton--modif p {
+        font-size: 0.90rem;
+    }
+
+    &:hover {
+        background-color: #fff;
         box-shadow: none;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-left: 0.75rem;
-        padding: 0;
-
-        h4 {
-            height: 96%;
-            padding: 2.8rem 0.4rem 0 0.4rem;
-            margin: 0 0.1rem;
-            transition: transform 500ms ease-out;
-        }
-
-        &:active > h4 {
-            transform: translateX(-20%);
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-            
-        .card__text {
-            margin-top: 0.8rem;
-            width: 100%;
-            min-width: 67%;
-            & > * {
-                margin: 0.3rem 0 0 0.7rem;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-            }
-        }
-        
-
-        .check {
-            width: 0;
-            height: 0;
-            margin: 0;
-            padding: 0;
-            visibility: hidden;
-            opacity: 0;
-
-            & >.fa-check-circle {
-                display: inline-block;
-                transform: rotate(-90deg);
-                transition: transform 500ms ease-in-out;
-            }
-        }
-
-        &:active > .check {
-            width: 25%;
-            height: 100%;
-            font-size: 1.5rem;
-            color: #fff;
-            background-color: $tertiary;
-            border-radius: 0 15px 15px 0;
-            border: none;
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 500ms ease-in-out;
-        }
-
-        &:active  .fa-check-circle {
-            transform: rotate(0deg);
-        }
-    
-        .carte__bouton--modif h4 {
-            margin: 5px 10px 5px 0;
-        }
-    
-        .carte__bouton--modif p {
-            font-size: 0.95rem;
-        }
-    
-        &:hover {
-            background-color: #fff;
-            box-shadow: none;
-        }
     }
-    
-    .carte__bouton--special {
-        height: 100px;
-        h4 {
-            padding-top: 3.9rem;
-        }
-    }
-
-} 
 }
+
+.carte-bouton__special {
+    opacity: 0;
+    @media #{$medium-down} {
+        display: none;
+    }
+}
+
+
