@@ -182,6 +182,14 @@ a:visited {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .block-page {
+    width: 80%;
+    margin: auto;
+    padding: 0;
+  }
+}
+
 .entete {
   width: 100%;
   height: auto;
